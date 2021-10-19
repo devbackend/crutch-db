@@ -1,0 +1,33 @@
+run:
+  concurrency: 4
+  timeout: 1m
+  issues-exit-code: 1
+  tests: true
+
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
+
+linters:
+  enable:
+    - deadcode
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - structcheck
+    - typecheck
+    - unused
+    - varcheck
+    - asciicheck
+    - gocyclo
+    - dupl
+    - prealloc
+    - revive
+    - testpackage
+    - unconvert
+    - wastedassign
+    - whitespace
+    - wsl
