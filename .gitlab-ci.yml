@@ -1,0 +1,36 @@
+stages:
+  - test
+
+.go-cache:
+  before_script:
+    - export GOPATH=/go
+    - export GOPROXY=direct
+    - go mod tidy -v
+
+Linters:
+  extends: .go-cache
+  stage: test
+  image: golang:1.14
+  script:
+    - make lint-install
+    - make lint
+  tags:
+    - docker
+
+Tests:
+  extends: .go-cache
+  stage: test
+  image: golang:1.14
+  script:
+    - make test
+  tags:
+    - docker
+
+Coverage:
+  extends: .go-cache
+  stage: test
+  image: golang:1.14
+  script:
+    - make test-coverage
+  tags:
+    - docker
