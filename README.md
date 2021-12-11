@@ -22,4 +22,13 @@ make test-coverage
 
 # build project (local)
 make build
+
+# run project (local)
+make run
+
+# build project (in docker)
+make docker-build
+
+# run project (in docker)
+make docker-run
 ```

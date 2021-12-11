@@ -16,3 +16,12 @@ test-coverage:
 
 build:
 	go build -o bin/crutchdb cmd/server/main.go
+
+run: build
+	bin/crutchdb
+
+docker-build:
+	docker build -t crutchdb -f Dockerfile .
+
+docker-run: docker-build
+	docker run -p 2357:2357 crutchdb
