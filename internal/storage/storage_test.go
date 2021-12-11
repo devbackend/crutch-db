@@ -9,7 +9,7 @@ import (
 )
 
 func TestStorage_GetFromEmpty(t *testing.T) {
-	st := storage.NewStorage()
+	st := storage.New()
 
 	_, ok := st.Get("any")
 
@@ -17,7 +17,7 @@ func TestStorage_GetFromEmpty(t *testing.T) {
 }
 
 func TestStorage_ReadSetValue(t *testing.T) {
-	st := storage.NewStorage()
+	st := storage.New()
 
 	err := st.Set("test", 123)
 
@@ -30,7 +30,7 @@ func TestStorage_ReadSetValue(t *testing.T) {
 }
 
 func TestStorage_DeleteValue(t *testing.T) {
-	st := storage.NewStorage()
+	st := storage.New()
 
 	_ = st.Set("test", 123)
 	err := st.Delete("test")
@@ -44,13 +44,13 @@ func TestStorage_DeleteValue(t *testing.T) {
 }
 
 func TestStorage_KeysOnEmpty(t *testing.T) {
-	st := storage.NewStorage()
+	st := storage.New()
 
 	assert.Equal(t, []string{}, st.Keys())
 }
 
 func TestStorage_Keys(t *testing.T) {
-	st := storage.NewStorage()
+	st := storage.New()
 
 	_ = st.Set("test1", 123)
 	_ = st.Set("test2", 456)
@@ -95,7 +95,7 @@ func BenchmarkStorageSet_RewriteKey(b *testing.B) {
 	}
 	for _, bm := range benchmarks {
 		b.Run(bm.name, func(b *testing.B) {
-			st := storage.NewStorage()
+			st := storage.New()
 
 			for i := 0; i < b.N; i++ {
 				_ = st.Set("test-key", bm.value)

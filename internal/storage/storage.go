@@ -9,7 +9,8 @@ type Storage struct {
 	keys map[string]interface{}
 }
 
-func NewStorage() *Storage {
+// New return instance of Storage
+func New() *Storage {
 	return &Storage{
 		mx:   sync.RWMutex{},
 		keys: map[string]interface{}{},
