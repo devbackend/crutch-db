@@ -19,4 +19,7 @@ make test
 
 # run tests with coverage
 make test-coverage
+
+# build project (local)
+make build
 ```

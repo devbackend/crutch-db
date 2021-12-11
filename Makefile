@@ -13,3 +13,6 @@ test-coverage:
 	go test ./... --race -coverprofile cover.out
 	go tool cover -func cover.out
 	@rm cover.out
+
+build:
+	go build -o bin/crutchdb cmd/server/main.go
